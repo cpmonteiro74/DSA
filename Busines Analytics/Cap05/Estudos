@@ -1,0 +1,7 @@
+select dt.ano,c.paiscliente, sum(v.quantidadevendida) as quantidade_vendida
+from dw.cliente c
+join dw.vendas v on c.clienteid=v.clienteid
+join dw.produto p on v.produtoid=p.produtoid
+join dw.data dt on v.dataid=dt.dataid
+group by dt.ano,c.paiscliente
+order by dt.ano,c.paiscliente;
